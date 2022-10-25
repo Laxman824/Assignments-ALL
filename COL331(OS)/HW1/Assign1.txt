@@ -1,0 +1,302 @@
+GDB output
+1 Point
+Turn in the output of the following GDB 𝑝𝑟𝑖𝑛𝑡 or 𝑝 commands, with which we can inspect the arguments that the 𝑒𝑥𝑒𝑐 function was called with : 
+(gdb) p argv [0]
+(gdb) p argv [1]
+(gdb) p argv [2]
+
+
+Sol:
+(gdb) print argv[0]
+$1 = 0x1880 "list"
+(gdb) print argv[1]
+$2 = 0x1885 "-l"
+(gdb) print argv[2]
+$3 = 0x0
+(gdb) 
+
+
+
+
+
+
+Q1.2 Backtrace command
+1 Point
+Turn in the output of the GDB 𝑏𝑎𝑐𝑘𝑡𝑟𝑎𝑐𝑒 or 𝑏𝑡 command at this point, which traces and lists the chain of function calls that led to the current function: i.e., the function that made this call to exec, the function that called that function, etc.
+
+sol:
+
+(gdb) backtrace
+#0  exec (path=0x1880 "list", argv=0x8dfbeed0) at exec.c:12
+#1  0x80105390 in sys_exec () at sysfile.c:419
+#2  0x80104869 in syscall () at syscall.c:139
+#3  0x80105825 in trap (tf=0x8dfbefb4) at trap.c:43
+#4  0x8010563f in alltraps () at trapasm.S:20
+#5  0x8dfbefb4 in ?? ()
+
+
+
+Q1.3       2 Points
+Now go ”up” one call frame so we can inspect the context from which exec was called, Turn in the output of the GDB 𝑙𝑖𝑠𝑡 or 𝑙 command at this point, showing the source code around 𝑠𝑦𝑠 𝑒𝑥𝑒𝑐’s call to 𝑒𝑥𝑒𝑐 .
+
+
+(gdb) up
+#1  0x80105390 in sys_exec () at sysfile.c:419
+419	  return exec(path, argv);
+(gdb) list
+414	      break;
+415	    }
+416	    if(fetchstr(uarg, &argv[i]) < 0)
+417	      return -1;
+418	  }
+419	  return exec(path, argv);
+420	}
+421	
+422	int
+423	sys_pipe(void)
+
+
+
+
+
+
+
+
+
+Q2 File descriptors
+2 Points
+Turn in the pseudo-code which implements I/O redirection.
+
+fd = dup(2)
+close (2);
+open(fd);
+
+
+
+
+
+
+Q3 System calls and processes
+1 Point
+
+
+
+3.1) pstree command
+
+Use pstree to see the process hierarchy.  Comment on your findings about the process hierarchy.
+
+
+
+Usually we can list out the processes running in the linux with other command also like top command which will share all the processes running behind but, pstree command is similar but it shows them in a tree .the tree like format is more convinient and even we can merge some of the processes which are from same application .it makes the output more visually appealing.In hierarchial format, child processes are shown under the parent process which makes it easy for us to look upon but in normal ps command we have do it manually using the pid and ppid number to know relation between them.
+
+
+
+
+
+3.2)
+
+proc filesystem
+0.25 Points
+Use ’ps x’ to identify the process IDs of the processes created by cat and tee commands. Linux provides a proc pseudo-filesystem which can be used to examine the state of a process using filesystem namespace. 
+Type the following command for both process-ids:
+$ ls -l /proc/pid-num/fd/
+What do you find? What are 0,1,2,...? What do they symlink to?
+
+
+lrwx------ 1 laxman laxman 64 Jan 18 19:46 0 -> /dev/pts/3
+lrwx------ 1 laxman laxman 64 Jan 18 19:46 1 -> /dev/pts/3
+lrwx------ 1 laxman laxman 64 Jan 18 19:46 2 -> /dev/pts/3
+lrwx------ 1 laxman laxman 64 Jan 18 20:35 255 -> /dev/pts/3
+
+As 
+here 0 is standard input
+here 1 is standard output
+2 will represent the standard error 
+
+File descriptor /proc/PID/fd/0 is stdin
+/proc/PID/fd/1 is stdout
+/proc/PID/fd/2 is stderr
+
+In this case symbolic link to stdin,stdout,stderr
+symlink consists of a special type of file that serves as a reference to another file or directory. Unix/Linux like operating systems often uses symlinks.
+
+
+
+
+Q3.3)
+ Threads
+0.25 Points
+Type :
+$ ls -l /proc/self/fd/
+What do you find? What is 3 pointing to? Why?
+
+
+total 0
+lrwx------ 1 laxman laxman 64 Jan 18 21:03 0 -> /dev/pts/2
+lrwx------ 1 laxman laxman 64 Jan 18 21:03 1 -> /dev/pts/2
+lrwx------ 1 laxman laxman 64 Jan 18 21:03 2 -> /dev/pts/2
+lr-x------ 1 laxman laxman 64 Jan 18 21:03 3 -> /proc/12224/fd
+
+File descriptors 0, 1 and 2 are the three standard streams) that all programs expect to find: standard input (stdin), standard output (stdout) and standard error (stderr). These streams are defined by their number: stdin is file descriptor 0 by definition, and its conventional role is to receive user input or input data, and likewise for stdout (1, user output or output data) and stderr (2, error messages).
+
+
+File descriptor 3 has no standard role, so it's specific to some software you're using, maybe your terminal emulator. You can see what's on the other end of the socket if you're curious.
+
+
+
+As i have ran the above command.observed that the 3 pointing to
+
+Q3.4 strace command
+0.25 Points
+Use strace to see the system calls executed by a given command. For example, type strace cat foo.txt (create foo.txt before-hand) and see the system calls that were executed, printed to STDOUT. List all the unique system calls that were used by this command.
+
+
+
+Sol::
+All the unique system calls that were used by this command are 
+
+execve ()
+brk()			- change data segment size
+access ()		-check user's permissions for a file
+openat()		-open and possibly create a file
+fstat()			-get filesystem statistics
+close()			-close a file descriptor
+mmap()			-map or unmap files or devices into memory
+mprotect()		-set protection on a region of memory
+arch_prctl()		-set architecture
+read()			-read from a file descriptor
+fadvise64()		-predeclare an access pattern for file data
+write () 		-write to a file descriptor
+
+
+
+
+
+Q4)   SIGINT Handler
+
+
+Q4.1 Kill command
+0.4 Points
+
+
+
+kill -9 pid-num
+
+
+
+Turn-in the output of 𝑘𝑖𝑙𝑙 −2 𝑝𝑖𝑑 command executed on another terminal.
+
+laxman@laxman-Vostro-3578:~/Downloads/SEMESTER 8/COL331(OS)$ ps
+  PID TTY          TIME CMD
+ 4292 pts/5    00:00:00 bash
+ 4304 pts/5    00:00:00 ps
+laxman@laxman-Vostro-3578:~/Downloads/SEMESTER 8/COL331(OS)$ kill -2 4282
+laxman@laxman-Vostro-3578:~/Downloads/SEMESTER 8/COL331(OS)$ kill -9 4282
+laxman@laxman-Vostro-3578:~/Downloads/SEMESTER 8/COL331(OS)$ kill 
+
+
+This is the output which i have observed and when i used the signal number 2(kill -2 4292) in the first case and tried to kill the process but it doesnt stop.when i changed the signal number 9(kill -9 4292) then it printed Hangup and terminated the infinite loop .
+In the first case of SIGINT (signal number 2) and other case is SIGKIL(signal number 9) here hangup is detected on controlling the terminal or death of process.
+
+
+
+
+
+
+
+Q4.2 SIGINT Handler
+0.6 Points
+Turn-in the code of the new program with the signal handler for SIGINT, and the kill command you used to stop the process
+
+
+
+
+// C program that does not suspend when CTRL+C  is pressed and prints hello
+// Ctrl+C is pressed
+#include <stdio.h>
+#include <signal.h>
+
+
+void sighandler(int sig_num)
+{
+	// Reset handler to catch SIGTSTP next time
+	signal(SIGINT, sighandler);
+	printf("hello ");
+	fflush(stdout);
+}
+
+int main(int argc, char **argv)
+{
+	// Set the SIGTSTP (Ctrl-Z) signal handler
+	// to sigHandler
+	signal(SIGINT, sighandler);
+	while(1)
+	{
+		
+	}
+	return 0;
+}
+
+I have used the command 
+kill -9 pid-num      //this was done from the 2nd terminal by knowing the process id using the top command 
+
+
+
+
+Q5 Threads
+4 Points
+Briefly describe how user level threads can be created with the help of 𝑠𝑖𝑔𝑛𝑎𝑙, 𝑎𝑙𝑎𝑟𝑚, and 𝑠𝑒𝑡𝑖𝑡𝑖𝑚𝑒𝑟 (2-3 sentences on idea and some pseudo-code).
+
+
+Sol:
+
+For each thread we define their PCs(program counters),registers and sp.suppose we schedule each thread to run for x unit time and after x units that thread will send a signal to the  next thread and will go for a wait condition.
+Now the next thread which is currently in the wait condition will receive  its signal and will start executing till x unit time.
+
+each thread will either run for x unit time or till its execution is completed.Once a thread is completed ,it will be removed from the list of active threads.
+
+
+
+
+
+
+
+
+def func(thread t )
+	{ while(true)
+		{ t.wait()
+		  update pc,registers
+		  execute till x unit time
+		if (t is completed)
+		   send signals to other threads
+		  break;
+		else{
+			store pc,register and sp of process
+			send signal to other threads
+                   }	
+	}
+}
+			 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

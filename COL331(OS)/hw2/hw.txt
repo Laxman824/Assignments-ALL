@@ -1,0 +1,29 @@
+Q1)[1.5 marks] TURN IN: Disassembly of the BIOS from the target of the initial "jmp" up to the next "control transfer" instruction
+
+
+int32_t global;
+int32_t foo(int32_t a, int32_t *b) {
+int32_t c;
+c = global + a;
+return *(b + c);
+}
+
+
+
+					/* int32_t global;    
+		   			int32_t foo(int32_t a, int32_t *b) {    */
+.text 
+foo:
+	pushl %ebp          
+	movl %esp,%ebp      
+
+
+	subl $4,%esp		 	/*  int_t c;  */
+	
+	movl global,%ecx		 /* c=global +a ;   */
+	addl 8(%ebp),%ecx                /*first moving and adding a in this line */
+	
+	movl 12(%ebp), %ebx
+	shll $2, %ecx # imull $4, %ecx	
+	addl %ecx, %ebx			/*return *(b + c); */
+	movl (%ebx), %eax
