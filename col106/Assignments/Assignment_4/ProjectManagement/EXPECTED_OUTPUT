@@ -1,0 +1,191 @@
+Creating user
+Creating user
+Creating user
+Creating project
+Creating project
+Creating project
+Creating job
+Creating job
+Creating job
+Creating job
+Running code
+	Remaining jobs: 4
+	Executing: DeepLearning from: IITD.CS.ML.ICML
+	Project: IITD.CS.ML.ICML budget remaining: 5
+Execution cycle completed
+Querying
+Kmeans: NOT FINISHED
+Querying
+Doesnotexists: NO SUCH JOB
+Running code
+	Remaining jobs: 3
+	Executing: ImageProcessing from: IITD.CS.ML.ICML
+	Un-sufficient budget.
+	Executing: Pipeline from: IITD.CS.OS.ASPLOS
+	Project: IITD.CS.OS.ASPLOS budget remaining: 90
+Execution cycle completed
+Creating job
+No such project exists. IITD.CS.ML.ICM
+Creating job
+No such user exists: Rob2
+Creating job
+Creating job
+Creating job
+Creating job
+Running code
+	Remaining jobs: 5
+	Executing: DeepLearning from: IITD.CS.ML.ICML
+	Un-sufficient budget.
+	Executing: ImageProcessing from: IITD.CS.ML.ICML
+	Un-sufficient budget.
+	Executing: Pipeline from: IITD.CS.OS.ASPLOS
+	Project: IITD.CS.OS.ASPLOS budget remaining: 80
+Execution cycle completed
+Creating job
+Creating job
+Creating job
+Creating job
+Running code
+	Remaining jobs: 6
+	Executing: DeepLearning11 from: IITD.CS.ML.ICML
+	Un-sufficient budget.
+	Executing: ImageProcessing1 from: IITD.CS.ML.ICML
+	Un-sufficient budget.
+	Executing: Pipeline1 from: IITD.CS.OS.ASPLOS
+	Project: IITD.CS.OS.ASPLOS budget remaining: 70
+Execution cycle completed
+Creating job
+Creating job
+Creating job
+Creating job
+Running code
+	Remaining jobs: 7
+	Executing: DeepLearning2 from: IITD.CS.ML.ICML
+	Un-sufficient budget.
+	Executing: ImageProcessing2 from: IITD.CS.ML.ICML
+	Un-sufficient budget.
+	Executing: Pipeline2 from: IITD.CS.OS.ASPLOS
+	Project: IITD.CS.OS.ASPLOS budget remaining: 60
+Execution cycle completed
+Creating job
+Creating job
+Creating job
+Creating job
+Running code
+	Remaining jobs: 15
+	Executing: ImageProcessing from: IITD.CS.ML.ICML
+	Project: IITD.CS.ML.ICML budget remaining: 55
+Execution cycle completed
+Querying
+Kmeans: NOT FINISHED
+Running code
+	Remaining jobs: 14
+	Executing: Kmeans3 from: IITD.CS.TH.SODA
+	Project: IITD.CS.TH.SODA budget remaining: 90
+Execution cycle completed
+Creating job
+Creating job
+Creating job
+Creating job
+Running code
+	Remaining jobs: 17
+	Executing: Pipeline3 from: IITD.CS.OS.ASPLOS
+	Project: IITD.CS.OS.ASPLOS budget remaining: 50
+Execution cycle completed
+Querying
+Kmeans: NOT FINISHED
+Running code
+	Remaining jobs: 16
+	Executing: Kmeans4 from: IITD.CS.TH.SODA
+	Project: IITD.CS.TH.SODA budget remaining: 80
+System execution completed
+Running code
+	Remaining jobs: 15
+	Executing: Kmeans1 from: IITD.CS.TH.SODA
+	Project: IITD.CS.TH.SODA budget remaining: 70
+System execution completed
+Running code
+	Remaining jobs: 14
+	Executing: ImageProcessing4 from: IITD.CS.ML.ICML
+	Project: IITD.CS.ML.ICML budget remaining: 45
+System execution completed
+Running code
+	Remaining jobs: 13
+	Executing: DeepLearning4 from: IITD.CS.ML.ICML
+	Project: IITD.CS.ML.ICML budget remaining: 35
+System execution completed
+Running code
+	Remaining jobs: 12
+	Executing: ImageProcessing3 from: IITD.CS.ML.ICML
+	Project: IITD.CS.ML.ICML budget remaining: 25
+System execution completed
+Running code
+	Remaining jobs: 11
+	Executing: Kmeans from: IITD.CS.TH.SODA
+	Project: IITD.CS.TH.SODA budget remaining: 60
+System execution completed
+Running code
+	Remaining jobs: 10
+	Executing: ImageProcessing2 from: IITD.CS.ML.ICML
+	Project: IITD.CS.ML.ICML budget remaining: 15
+System execution completed
+Running code
+	Remaining jobs: 9
+	Executing: Kmeans2 from: IITD.CS.TH.SODA
+	Project: IITD.CS.TH.SODA budget remaining: 50
+System execution completed
+Running code
+	Remaining jobs: 8
+	Executing: Kmeans from: IITD.CS.TH.SODA
+	Project: IITD.CS.TH.SODA budget remaining: 40
+System execution completed
+Running code
+	Remaining jobs: 7
+	Executing: Pipeline4 from: IITD.CS.OS.ASPLOS
+	Project: IITD.CS.OS.ASPLOS budget remaining: 40
+System execution completed
+Running code
+	Remaining jobs: 6
+	Executing: ImageProcessing from: IITD.CS.ML.ICML
+	Project: IITD.CS.ML.ICML budget remaining: 5
+System execution completed
+Running code
+	Remaining jobs: 5
+	Executing: DeepLearning3 from: IITD.CS.ML.ICML
+	Un-sufficient budget.
+	Executing: DeepLearning2 from: IITD.CS.ML.ICML
+	Un-sufficient budget.
+	Executing: ImageProcessing1 from: IITD.CS.ML.ICML
+	Un-sufficient budget.
+	Executing: DeepLearning from: IITD.CS.ML.ICML
+	Un-sufficient budget.
+	Executing: DeepLearning11 from: IITD.CS.ML.ICML
+	Un-sufficient budget.
+System execution completed
+--------------STATS---------------
+Total jobs done: 16
+Job{user='Carry', project='IITD.CS.TH.SODA', jobstatus=COMPLETED, execution_time=10, end_time=70, name='Kmeans3'}
+Job{user='Carry', project='IITD.CS.ML.ICML', jobstatus=COMPLETED, execution_time=10, end_time=60, name='ImageProcessing'}
+Job{user='Rob', project='IITD.CS.ML.ICML', jobstatus=COMPLETED, execution_time=10, end_time=10, name='DeepLearning'}
+Job{user='Rob', project='IITD.CS.ML.ICML', jobstatus=COMPLETED, execution_time=10, end_time=120, name='DeepLearning4'}
+Job{user='Carry', project='IITD.CS.ML.ICML', jobstatus=COMPLETED, execution_time=10, end_time=110, name='ImageProcessing4'}
+Job{user='Carry', project='IITD.CS.ML.ICML', jobstatus=COMPLETED, execution_time=10, end_time=130, name='ImageProcessing3'}
+Job{user='Carry', project='IITD.CS.ML.ICML', jobstatus=COMPLETED, execution_time=10, end_time=150, name='ImageProcessing2'}
+Job{user='Carry', project='IITD.CS.TH.SODA', jobstatus=COMPLETED, execution_time=10, end_time=100, name='Kmeans1'}
+Job{user='Carry', project='IITD.CS.TH.SODA', jobstatus=COMPLETED, execution_time=10, end_time=140, name='Kmeans'}
+Job{user='Carry', project='IITD.CS.TH.SODA', jobstatus=COMPLETED, execution_time=10, end_time=160, name='Kmeans2'}
+Job{user='Harry', project='IITD.CS.OS.ASPLOS', jobstatus=COMPLETED, execution_time=10, end_time=20, name='Pipeline'}
+Job{user='Carry', project='IITD.CS.TH.SODA', jobstatus=COMPLETED, execution_time=10, end_time=90, name='Kmeans4'}
+Job{user='Harry', project='IITD.CS.OS.ASPLOS', jobstatus=COMPLETED, execution_time=10, end_time=50, name='Pipeline2'}
+Job{user='Harry', project='IITD.CS.OS.ASPLOS', jobstatus=COMPLETED, execution_time=10, end_time=40, name='Pipeline1'}
+Job{user='Harry', project='IITD.CS.OS.ASPLOS', jobstatus=COMPLETED, execution_time=10, end_time=80, name='Pipeline3'}
+Job{user='Harry', project='IITD.CS.OS.ASPLOS', jobstatus=COMPLETED, execution_time=10, end_time=180, name='Pipeline4'}
+------------------------
+Unfinished jobs: 
+Job{user='Rob', project='IITD.CS.ML.ICML', jobstatus=REQUESTED, execution_time=10, end_time=null, name='DeepLearning3'}
+Job{user='Rob', project='IITD.CS.ML.ICML', jobstatus=REQUESTED, execution_time=10, end_time=null, name='DeepLearning2'}
+Job{user='Carry', project='IITD.CS.ML.ICML', jobstatus=REQUESTED, execution_time=10, end_time=null, name='ImageProcessing1'}
+Job{user='Rob', project='IITD.CS.ML.ICML', jobstatus=REQUESTED, execution_time=10, end_time=null, name='DeepLearning'}
+Job{user='Rob', project='IITD.CS.ML.ICML', jobstatus=REQUESTED, execution_time=10, end_time=null, name='DeepLearning11'}
+Total unfinished jobs: 5
+--------------STATS DONE---------------

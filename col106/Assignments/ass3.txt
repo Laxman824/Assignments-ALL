@@ -1,0 +1,10 @@
+insert Kapil Singh Nilgiri CS 6.5
+insert Chunky Singh Nilgiri CE 6.0
+insert Shyam Singh Satpura EE 8.2
+update Chunky Singh Nilgiri CE 5.0
+delete Kapil Singh
+contains Kapil Singh
+get Shyam Singh
+address Shyam Singh
+address Kapil Singh
+delete Shyam Singh

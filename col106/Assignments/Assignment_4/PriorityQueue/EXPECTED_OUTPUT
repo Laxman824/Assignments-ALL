@@ -1,0 +1,7 @@
+Inserting: Diljeet Singh
+Inserting: Bhavesh Kumar
+Inserting: Dishant Kumar
+Student{name='Bhavesh Kumar', marks=100}
+Student{name='Dishant Kumar', marks=67}
+Student{name='Diljeet Singh', marks=10}
+Heap is empty.
