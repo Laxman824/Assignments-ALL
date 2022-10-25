@@ -1,0 +1,24 @@
+---------------------------------------------------
+Here are the ownership and the certification details
+of the MyApp 1.0
+---------------------------------------------------
+
+app_name - 						MyApp
+app_alias - 					myapp
+app_author_name - 				My Company
+app_author_organizational - 	My Company
+app_author_organization - 		My Company
+app_author_locality - 			My Company
+app_author_state - 				Haryana
+app_author_country - 			India
+app_password - 					fSwr2N2ZD500
+app_versionName - 				versionName "1.0"
+app_versionCode - 				100
+
+---------------------------------------------------
+The certification was created by WebIntoApp.com at
+the Wednesday 17th of August 2022 05:16:44 PM
+
+https://www.webintoapp.com
+---------------------------------------------------
+

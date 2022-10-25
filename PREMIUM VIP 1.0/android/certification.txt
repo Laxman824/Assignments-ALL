@@ -1,0 +1,24 @@
+---------------------------------------------------
+Here are the ownership and the certification details
+of the PREMIUM VIP 1.0
+---------------------------------------------------
+
+app_name - 						PREMIUM VIP
+app_alias - 					premiumvip
+app_author_name - 				My Company
+app_author_organizational - 	My Company
+app_author_organization - 		My Company
+app_author_locality - 			My Company
+app_author_state - 				Haryana
+app_author_country - 			India
+app_password - 					CAOFVe6LzAom
+app_versionName - 				versionName "1.0"
+app_versionCode - 				100
+
+---------------------------------------------------
+The certification was created by WebIntoApp.com at
+the Wednesday 17th of August 2022 07:42:09 PM
+
+https://www.webintoapp.com
+---------------------------------------------------
+
