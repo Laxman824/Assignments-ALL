@@ -1,0 +1,29 @@
+
+
+resume from snapshot files
+cargo run -- --kernel path=../../bzimage-hello-busybox --port 10010 --cpu_path="cpu.txt" --memory_path="mem.txt" --net tap="vmtap100"
+
+run fresh
+cargo run -- --kernel path=../../bzimage-hello-busybox --port 10010 --net tap="vmtap100"
+
+make the vm sleep 
+sleep 1 && echo 0 && sleep 1 && echo 1 && sleep 1 && echo 2 && sleep 1 && echo 3 && sleep 1 && echo 4 && sleep 1 && echo 5 && sleep 1 && echo 6 && sleep 1 && echo 7 
+
+
+cargo run --bin simple pause cpu.txt mem.txt 10010 true
+
+cargo run -- --kernel path=../bzimage-focal --port 10010 --net tap="vmtap100" --block path=../ubuntu-focal-rootfs-x86_64.ext4
+cargo run -- --kernel path=../bzimage-focal --port 10010 --net tap="vmtap100" --block path=../ubuntu-focal-rootfs-x86_64.ext4 --cpu_path="cpu.txt" --memory_path="mem.txt"
+
+
+sudo ip tuntap add dev vmtap100 mode tap
+sudo ip addr add 192.168.241.1/24 dev vmtap100
+sudo ip link set vmtap100 up
+
+ip a add 192.168.241.2/24 dev eth0
+ip link set eth0 up
+
+nc -l -p 1234 > a
+
+nc -w 3 192.168.241.2  1234 < a
+sudo mount -o loop ../ubuntu-focal-rootfs-x86_64.ext4 /mnt/a
